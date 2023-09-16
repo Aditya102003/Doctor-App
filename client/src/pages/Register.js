@@ -11,7 +11,7 @@ const Register = () => {
   // form handler
   const onfinishHandler= async (values)=>{
     try {
-      console.log(values);
+      
       const res = await axios.post("http://localhost:8080/api/v1/user/register",values);
       if(res.data.success){
         message.success('Register Successfully!')
