@@ -3,7 +3,7 @@ const { loginController,
      registerController,
      authController,
 } = require('../controllers/userCtrl');
-const authMiddleware = require('../middlewares/authMiddleware');
+const authMiddleware  =  require('../middlewares/authMiddleware');
 
 // router object
 
@@ -21,3 +21,4 @@ router.post('/register',registerController);
 //  Auth || POST 
 router.post('/getUserData',authMiddleware,authController);
 module.exports=router;
+

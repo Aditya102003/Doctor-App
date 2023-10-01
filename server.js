@@ -6,6 +6,7 @@ const cors=require("cors")
 const  connectDB = require("./config/db");
 
 // dotenv config
+
 dotenv.config();
 // mongodb connection 
 connectDB();
@@ -14,7 +15,7 @@ connectDB();
 const app=express();
 
 // // middlewares
-app.use(cors({origin: true, credentials: true}));
+app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 

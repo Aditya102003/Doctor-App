@@ -2,17 +2,24 @@ import React from "react";
 import { Form , Input,message } from 'antd';
 import '../styles/RegisterStyles.css';
 import axios from 'axios' 
+import {useDispatch} from 'react-redux'
+
+import {showLoading,hideLoading} from "../redux/features/alertSlice"
 import {Link,useNavigate} from 'react-router-dom'
 
 
 const Register = () => {
 
   const navigate=useNavigate()
+
+  const dispatch = useDispatch();
   // form handler
   const onfinishHandler= async (values)=>{
     try {
-      
+      dispatch(showLoading());
       const res = await axios.post("http://localhost:8080/api/v1/user/register",values);
+
+      dispatch(hideLoading());
       if(res.data.success){
         message.success('Register Successfully!')
         navigate("/login")
@@ -22,6 +29,7 @@ const Register = () => {
       }
     }
     catch(error){
+      dispatch(hideLoading());
       console.log(error);
       message.error("something went wrong");
     }
@@ -34,15 +42,15 @@ const Register = () => {
 <h3 className="text-center">Register Form</h3>
 
 <Form.Item label="Name" name="name">
-<input type="text" required/>
+<Input type="text" required/>
 </Form.Item>
    
 <Form.Item label= "Email" name="email">
-<input type="email" required/>
+<Input type="email" required/>
 </Form.Item>
 
 <Form.Item label= "Password" name="password">
-<input type="password" required />
+<Input type="password" required />
 </Form.Item>
 
 <Link to='/Login' className="m-3">Already  user login here</Link>
