@@ -23,11 +23,7 @@ catch(error){
   return (
 
     <Layout>
-      <Content>
-             <h1>
-            Home Page
-        </h1>
-        </Content>
+           <h1>Home Page</h1>  
     </Layout>
   )
 }
