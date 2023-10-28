@@ -21,7 +21,8 @@ export const userMenu=[
 
 },
 
-]
+];
+
 
 
 // admin menu 

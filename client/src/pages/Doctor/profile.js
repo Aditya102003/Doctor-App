@@ -49,6 +49,7 @@ const Profile = () => {
   };
   // update doc ==========
 
+
   //getDOc Details
   const getDoctorInfo = async () => {
     try {
@@ -69,9 +70,10 @@ const Profile = () => {
     }
   };
 
+  
   useEffect(() => {
     getDoctorInfo();
-    //eslint-disable-next-line
+    
   }, []);
   return (
     <Layout>
@@ -171,12 +173,12 @@ const Profile = () => {
             </Col>
             <Col xs={24} md={24} lg={8}>
               <Form.Item
-                label="Fees Per Cunsaltation"
-                name="feesPerCunsaltation"
+                label="feesPerConsultation"
+                name="feesPerConsultation"
                 required
                 rules={[{ required: true }]}
               >
-                <Input type="text" placeholder="your contact no" />
+                <Input type="text" placeholder="your fees" />
               </Form.Item>
             </Col>
             <Col xs={24} md={24} lg={8}>

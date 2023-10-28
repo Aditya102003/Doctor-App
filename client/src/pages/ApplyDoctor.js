@@ -20,11 +20,11 @@ headers:{
 }) 
 dispatch(hideLoading())    
 if(res.data.success) {
-    message.success(res.data.success)
+    message.success(res.data.message)
 Navigate('/')
 } 
 else {
-    message.error(res.data.success)
+    message.error(res.data.message)
 } 
  }
         catch(error){
