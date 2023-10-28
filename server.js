@@ -4,6 +4,7 @@ const morgan=require('morgan');
 const dotenv= require('dotenv');
 const cors=require("cors")
 const  connectDB = require("./config/db");
+const path = require('path')
 
 // dotenv config
 
@@ -32,6 +33,12 @@ app.get("/", (req, res) => {
     return res.end("works");
 });
 
+// static files 
+app.use(express.static(path.join(__dirname,'./client/build')));
+
+app.get("*",function(req,res){
+    res.sendFile(path.join(__dirname,'./client/build/index.html'))
+});
 
 
 // // port 
